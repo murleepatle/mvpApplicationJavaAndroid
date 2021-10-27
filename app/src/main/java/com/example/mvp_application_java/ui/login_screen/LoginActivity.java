@@ -23,6 +23,7 @@ import java.util.Objects;
 /**
  * This activity class is use for perform login operation.
  *
+ *
  */
 public class LoginActivity extends AppCompatActivity implements LoginContract.View {
 
