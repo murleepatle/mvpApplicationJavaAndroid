@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">MVPApplicationJava</string>
+    <string name="error_something_wrong">Something Is wrong.</string>
+    <string name="username">User Name</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="mobile">Mobile</string>
+    <string name="address">Address</string>
+    <string name="register">Register</string>
+    <string name="register_successfully_msg">Register Successfully!\n Please Login</string>
+    <string name="error_full_name">Full Name is empty.</string>
+    <string name="error_user_id">User Id is empty.</string>
+    <string name="error_email">Email is empty.</string>
+    <string name="error_password_empty">Password is empty.</string>
+    <string name="error_confirm_password_empty">Confirm password is empty.</string>
+    <string name="error_mobile_number_empty">Mobile Number is empty.</string>
+    <string name="error_address_empty">Address is empty.</string>
+    <string name="error_match_password">Password does\'t match.</string>
+    <string name="error_user_already_exist">User is already exist on DB please change USER ID</string>
+    <string name="user_login">User Login</string>
+    <string name="user_login_successfully">User Login Successfully.</string>
+    <string name="error_invalid_user">Invalid Credential</string>
+    <string name="ok">OK</string>
+    <string name="login">Login</string>
+
+</resources>
