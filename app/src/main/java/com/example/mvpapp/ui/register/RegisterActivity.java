@@ -6,17 +6,19 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mvpapp.R;
+import com.example.mvpapp.data.repository.InputValidationRepository;
+import com.example.mvpapp.data.repository.UserDataSqliteRepository;
+import com.example.mvpapp.data.sqlite.UserDbHelper;
 import com.example.mvpapp.databinding.ActivityRegisterBinding;
-import com.example.mvpapp.repository.InputValidationRepository;
-import com.example.mvpapp.repository.UserDataSqliteRepository;
-import com.example.mvpapp.sqlite.UserDbHelper;
+import com.example.mvpapp.interfaces.RegisterContract;
+import com.example.mvpapp.presenter.RegisterPresenter;
 import com.example.mvpapp.utility.CustomWatcher;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 /**
  * This activity class is use for perform register operation.
  */
-public class RegisterActivity extends AppCompatActivity implements IRegisterView {
+public class RegisterActivity extends AppCompatActivity implements RegisterContract.IRegisterView {
 
     private ActivityRegisterBinding activityRegisterBinding;
     private RegisterPresenter registerPresenter;

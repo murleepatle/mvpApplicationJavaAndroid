@@ -1,4 +1,4 @@
-package com.example.mvpapp.repository;
+package com.example.mvpapp.data.repository;
 
 /**
  * This class use for input validation.

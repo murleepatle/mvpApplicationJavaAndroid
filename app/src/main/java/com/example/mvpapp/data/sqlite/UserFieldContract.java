@@ -1,4 +1,4 @@
-package com.example.mvpapp.sqlite;
+package com.example.mvpapp.data.sqlite;
 
 import android.provider.BaseColumns;
 

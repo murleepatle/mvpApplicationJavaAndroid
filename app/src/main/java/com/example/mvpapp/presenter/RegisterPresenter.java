@@ -1,18 +1,19 @@
-package com.example.mvpapp.ui.register;
+package com.example.mvpapp.presenter;
 
 import com.example.mvpapp.R;
-import com.example.mvpapp.repository.InputValidationRepository;
-import com.example.mvpapp.repository.UserDataSqliteRepository;
+import com.example.mvpapp.data.repository.InputValidationRepository;
+import com.example.mvpapp.data.repository.UserDataSqliteRepository;
+import com.example.mvpapp.interfaces.RegisterContract;
 
 /**
  * This class is Presenter class this class is hold all business logic for Register Operations.
  */
-public class RegisterPresenter implements IRegisterPresenter {
-    private final IRegisterView view;
-    private final InputValidationRepository inputValidationRepository;
+public class RegisterPresenter implements RegisterContract.IRegisterPresenter {
+    private final RegisterContract.IRegisterView view;
     private final UserDataSqliteRepository userDataSqliteRepository;
+    private final InputValidationRepository inputValidationRepository;
 
-    public RegisterPresenter(IRegisterView view, InputValidationRepository inputValidationRepository, UserDataSqliteRepository userDataSqliteRepository) {
+    public RegisterPresenter(RegisterContract.IRegisterView view, InputValidationRepository inputValidationRepository, UserDataSqliteRepository userDataSqliteRepository) {
         this.view = view;
         this.inputValidationRepository = inputValidationRepository;
         this.userDataSqliteRepository = userDataSqliteRepository;

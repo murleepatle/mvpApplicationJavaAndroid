@@ -1,9 +1,9 @@
-package com.example.mvpapp.repository;
+package com.example.mvpapp.data.repository;
 
 import android.content.ContentValues;
 
-import com.example.mvpapp.sqlite.UserDbHelper;
-import com.example.mvpapp.sqlite.UserFieldContract;
+import com.example.mvpapp.data.sqlite.UserDbHelper;
+import com.example.mvpapp.data.sqlite.UserFieldContract;
 
 /**
  * This class is use for a Sqlite Operations.

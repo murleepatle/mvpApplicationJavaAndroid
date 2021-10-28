@@ -7,10 +7,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mvpapp.R;
+import com.example.mvpapp.data.repository.InputValidationRepository;
+import com.example.mvpapp.data.repository.UserDataSqliteRepository;
+import com.example.mvpapp.data.sqlite.UserDbHelper;
 import com.example.mvpapp.databinding.ActivityLoginBinding;
-import com.example.mvpapp.repository.InputValidationRepository;
-import com.example.mvpapp.repository.UserDataSqliteRepository;
-import com.example.mvpapp.sqlite.UserDbHelper;
+import com.example.mvpapp.interfaces.LoginContract;
+import com.example.mvpapp.presenter.LoginPresenter;
 import com.example.mvpapp.ui.dashboard.MainActivity;
 import com.example.mvpapp.ui.register.RegisterActivity;
 import com.example.mvpapp.utility.ConstantValue;
@@ -20,7 +22,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 /**
  * This activity class is use for perform login operation.
  */
-public class LoginActivity extends AppCompatActivity implements ILoginView {
+public class LoginActivity extends AppCompatActivity implements LoginContract.ILoginView {
 
     private ActivityLoginBinding activityLoginBinding;
     private LoginPresenter loginPresenter;
