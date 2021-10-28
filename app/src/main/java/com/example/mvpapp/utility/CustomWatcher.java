@@ -7,9 +7,11 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class CustomWatcher implements TextWatcher {
     TextInputLayout textInputLayout;
-    public CustomWatcher( TextInputLayout textInputLayout){
-        this.textInputLayout=textInputLayout;
+
+    public CustomWatcher(TextInputLayout textInputLayout) {
+        this.textInputLayout = textInputLayout;
     }
+
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 

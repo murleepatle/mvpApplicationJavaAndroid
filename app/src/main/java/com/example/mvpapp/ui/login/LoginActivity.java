@@ -2,8 +2,6 @@ package com.example.mvpapp.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,10 +19,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 /**
  * This activity class is use for perform login operation.
- *
- *
  */
-public class LoginActivity extends AppCompatActivity implements LoginContract.View {
+public class LoginActivity extends AppCompatActivity implements ILoginView {
 
     private ActivityLoginBinding activityLoginBinding;
     private LoginPresenter loginPresenter;
@@ -43,11 +39,10 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     /**
      * This method use for TextChangedListener for edittext.
      * this method remove the error of TextInputLayout when user change the text value of it.
-     *
      */
     private void setUpTextChangedListener() {
         activityLoginBinding.username.addTextChangedListener(new CustomWatcher(activityLoginBinding.userNameTextInputLayout));
-        activityLoginBinding.password.addTextChangedListener(new CustomWatcher (activityLoginBinding.passwordTextInputLayout));
+        activityLoginBinding.password.addTextChangedListener(new CustomWatcher(activityLoginBinding.passwordTextInputLayout));
     }
 
     /**
@@ -56,13 +51,14 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     private void setupClickListener() {
         activityLoginBinding.loginButton.setOnClickListener(v -> loginPresenter.performLoginProcess(
                 activityLoginBinding.username.getText().toString(),
-               activityLoginBinding.password.getText().toString()
+                activityLoginBinding.password.getText().toString()
         ));
         activityLoginBinding.buttonRegister.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
     }
 
     /**
      * this  method is override method that is called when user login successfully in Sqlite DB
+     *
      * @param userId user id return that is login user identity.
      */
     @Override
@@ -77,6 +73,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     /**
      * This method is override method that is call when user login gone to failed.
+     *
      * @param errorMsgResourceId this message that is send by the login response.
      */
     @Override
@@ -89,6 +86,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     /**
      * This method is override method that is called when user field has some wrong input.
+     *
      * @param errorMsgResourceId this is the error message.
      */
     @Override
@@ -98,6 +96,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     /**
      * This method is override method that is called when password field has some wrong input.
+     *
      * @param errorMsgResourceId this is the error message.
      */
     @Override

@@ -1,9 +1,7 @@
 package com.example.mvpapp.repository;
 
 /**
- *
  * This class use for input validation.
- *
  */
 public class InputValidationRepository {
 
@@ -18,6 +16,7 @@ public class InputValidationRepository {
 
     /**
      * this method is use for validate empty or null value of string
+     *
      * @param fieldValue value of field
      * @return true/false
      */
@@ -30,7 +29,8 @@ public class InputValidationRepository {
      * this method is use for check two string are equal or not.
      * if both string is null or empty it will return false.
      * when string match it will return true.
-     * @param password this is the 1st param like password
+     *
+     * @param password        this is the 1st param like password
      * @param confirmPassword this is the 2nd param like confirm password
      * @return true or false
      */

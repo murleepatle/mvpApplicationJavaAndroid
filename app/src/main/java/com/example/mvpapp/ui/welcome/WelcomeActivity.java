@@ -8,12 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.mvpapp.R;
 import com.example.mvpapp.ui.login.LoginActivity;
 
-import java.util.Objects;
-
 /**
  * This is the Welcome screen that call when our app is open.
  * this activity show the splash on starting of the app util app is going to visible to user
- *
  */
 public class WelcomeActivity extends AppCompatActivity {
 

@@ -5,14 +5,14 @@ import com.example.mvpapp.repository.InputValidationRepository;
 import com.example.mvpapp.repository.UserDataSqliteRepository;
 
 /**
- *This class is Presenter class this class is hold all business logic for Register Operations.
+ * This class is Presenter class this class is hold all business logic for Register Operations.
  */
-public class RegisterPresenter implements RegisterContract.Presenter {
-    private final RegisterContract.View view;
+public class RegisterPresenter implements IRegisterPresenter {
+    private final IRegisterView view;
     private final InputValidationRepository inputValidationRepository;
     private final UserDataSqliteRepository userDataSqliteRepository;
 
-    public RegisterPresenter(RegisterContract.View view, InputValidationRepository inputValidationRepository, UserDataSqliteRepository userDataSqliteRepository) {
+    public RegisterPresenter(IRegisterView view, InputValidationRepository inputValidationRepository, UserDataSqliteRepository userDataSqliteRepository) {
         this.view = view;
         this.inputValidationRepository = inputValidationRepository;
         this.userDataSqliteRepository = userDataSqliteRepository;
@@ -50,12 +50,12 @@ public class RegisterPresenter implements RegisterContract.Presenter {
     /**
      * This method user for check each user input fill or not,
      *
-     * @param fullName        full name of user
-     * @param userId          unique user Id of user
-     * @param email           email address of user
-     * @param password        password of user
-     * @param mobileNo        mobile number of user
-     * @param address         postal address of user
+     * @param fullName full name of user
+     * @param userId   unique user Id of user
+     * @param email    email address of user
+     * @param password password of user
+     * @param mobileNo mobile number of user
+     * @param address  postal address of user
      * @return true/ false
      */
 

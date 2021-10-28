@@ -9,7 +9,6 @@ import com.example.mvpapp.sqlite.UserFieldContract;
  * This class is use for a Sqlite Operations.
  * in this class we can perform all sqlite query like insert delete update etc.
  * this class is access sqlite database class.
- *
  */
 public class UserDataSqliteRepository {
     private static UserDataSqliteRepository instance;
@@ -29,12 +28,13 @@ public class UserDataSqliteRepository {
     /**
      * This method is use for register user in app db.
      * if user data inserted successfully it will return ture otherwise it will send false.
-     * @param fullName        full name of user
-     * @param userId          unique user Id of user
-     * @param email           email address of user
-     * @param password        password of user
-     * @param mobileNo        mobile number of user
-     * @param address         postal address of user
+     *
+     * @param fullName full name of user
+     * @param userId   unique user Id of user
+     * @param email    email address of user
+     * @param password password of user
+     * @param mobileNo mobile number of user
+     * @param address  postal address of user
      * @return true/ false
      */
     public boolean registerUser(String fullName, String userId, String email, String password, String mobileNo, String address) {
@@ -52,7 +52,8 @@ public class UserDataSqliteRepository {
     /**
      * This method is use for check the user Id and password is match or not.
      * in this method we perform login task from sqlite db
-     * @param userId  unique user Id of user
+     *
+     * @param userId   unique user Id of user
      * @param password password of user
      * @return true/false
      */
@@ -62,6 +63,7 @@ public class UserDataSqliteRepository {
 
     /**
      * This method is use for the check user is exits or not in our Sqlite Database
+     *
      * @param userId user unique identification Id
      * @return true or false
      */

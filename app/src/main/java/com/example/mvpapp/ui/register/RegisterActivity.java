@@ -1,8 +1,6 @@
 package com.example.mvpapp.ui.register;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +16,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 /**
  * This activity class is use for perform register operation.
  */
-public class RegisterActivity extends AppCompatActivity implements RegisterContract.View {
+public class RegisterActivity extends AppCompatActivity implements IRegisterView {
 
     private ActivityRegisterBinding activityRegisterBinding;
     private RegisterPresenter registerPresenter;

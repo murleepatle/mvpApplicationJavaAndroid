@@ -125,7 +125,7 @@ public class UserDbHelper extends SQLiteOpenHelper {
 
         Cursor cursor = db.query(UserFieldContract.UserEntry.TABLE_NAME, columns,
                 selection, args, null, null, null);
-        userExist= cursor != null && cursor.moveToFirst();
+        userExist = cursor != null && cursor.moveToFirst();
         if (cursor != null) {
             cursor.close();
         }
