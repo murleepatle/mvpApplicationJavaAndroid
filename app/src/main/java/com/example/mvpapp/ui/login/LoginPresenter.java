@@ -1,16 +1,16 @@
-package com.example.mvp_application_java.ui.login_screen;
+package com.example.mvpapp.ui.login;
 
-import com.example.mvp_application_java.R;
-import com.example.mvp_application_java.repository.InputValidationRepository;
-import com.example.mvp_application_java.repository.UserDataSqliteRepository;
+import com.example.mvpapp.R;
+import com.example.mvpapp.repository.InputValidationRepository;
+import com.example.mvpapp.repository.UserDataSqliteRepository;
 
 /**
  *This class is Presenter class this class is hold all business logic for Login Operations.
  */
 public class LoginPresenter implements LoginContract.Presenter {
     private final LoginContract.View view;
-    final InputValidationRepository inputValidationRepository;
-    final UserDataSqliteRepository userDataSqliteRepository;
+    private final InputValidationRepository inputValidationRepository;
+    private final UserDataSqliteRepository userDataSqliteRepository;
 
     public LoginPresenter(LoginContract.View view, InputValidationRepository inputValidationRepository, UserDataSqliteRepository userDataSqliteRepository) {
         this.view = view;

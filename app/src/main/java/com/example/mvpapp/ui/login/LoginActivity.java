@@ -1,4 +1,4 @@
-package com.example.mvp_application_java.ui.login_screen;
+package com.example.mvpapp.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,17 +8,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mvp_application_java.R;
-import com.example.mvp_application_java.databinding.ActivityLoginBinding;
-import com.example.mvp_application_java.repository.InputValidationRepository;
-import com.example.mvp_application_java.repository.UserDataSqliteRepository;
-import com.example.mvp_application_java.sqlite_db.UserDbHelper;
-import com.example.mvp_application_java.ui.dashboard.MainActivity;
-import com.example.mvp_application_java.ui.register_screen.RegisterActivity;
-import com.example.mvp_application_java.utility_class.ConstantValue;
+import com.example.mvpapp.R;
+import com.example.mvpapp.databinding.ActivityLoginBinding;
+import com.example.mvpapp.repository.InputValidationRepository;
+import com.example.mvpapp.repository.UserDataSqliteRepository;
+import com.example.mvpapp.sqlite.UserDbHelper;
+import com.example.mvpapp.ui.dashboard.MainActivity;
+import com.example.mvpapp.ui.register.RegisterActivity;
+import com.example.mvpapp.utility.ConstantValue;
+import com.example.mvpapp.utility.CustomWatcher;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
-import java.util.Objects;
 
 /**
  * This activity class is use for perform login operation.
@@ -27,8 +26,8 @@ import java.util.Objects;
  */
 public class LoginActivity extends AppCompatActivity implements LoginContract.View {
 
-    ActivityLoginBinding activityLoginBinding;
-    LoginPresenter loginPresenter;
+    private ActivityLoginBinding activityLoginBinding;
+    private LoginPresenter loginPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,34 +46,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
      *
      */
     private void setUpTextChangedListener() {
-        activityLoginBinding.username.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                activityLoginBinding.userNameTextInputLayout.setError(null);
-            }
-        });
-        activityLoginBinding.password.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                activityLoginBinding.passwordTextInputLayout.setError(null);
-            }
-        });
+        activityLoginBinding.username.addTextChangedListener(new CustomWatcher(activityLoginBinding.userNameTextInputLayout));
+        activityLoginBinding.password.addTextChangedListener(new CustomWatcher (activityLoginBinding.passwordTextInputLayout));
     }
 
     /**
@@ -82,8 +55,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
      */
     private void setupClickListener() {
         activityLoginBinding.loginButton.setOnClickListener(v -> loginPresenter.performLoginProcess(
-                Objects.requireNonNull(activityLoginBinding.username.getText()).toString(),
-                Objects.requireNonNull(activityLoginBinding.password.getText()).toString()
+                activityLoginBinding.username.getText().toString(),
+               activityLoginBinding.password.getText().toString()
         ));
         activityLoginBinding.buttonRegister.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
     }

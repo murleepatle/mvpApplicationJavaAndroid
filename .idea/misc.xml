@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/splash_background.xml" value="0.2984375" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.13728470111448834" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.13728470111448834" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2984375" />
@@ -14,6 +15,12 @@
     </option>
   </component>
   <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="com.example.mvpapp.ui.login.LoginActivity activityLoginBinding" />
+      <entry_point TYPE="field" FQNAME="com.example.mvpapp.ui.login.LoginActivity loginPresenter" />
+      <entry_point TYPE="field" FQNAME="com.example.mvpapp.ui.register.RegisterActivity activityRegisterBinding" />
+      <entry_point TYPE="field" FQNAME="com.example.mvpapp.ui.register.RegisterActivity registerPresenter" />
+    </entry_points>
     <pattern value="com.example.mvpapplicationjava.ui.base.BaseContract" />
     <pattern value="com.example.mvpapplicationjava.ui.base.BaseContract.BasePresenter" />
     <pattern value="com.example.mvpapplicationjava.ui.base.BaseContract.BaseView" />
@@ -21,6 +28,52 @@
     <pattern value="com.example.mvp_application_java.ui.register_screen.RegisterContract.Presenter" method="performRegistration" />
     <pattern value="com.example.mvp_application_java.ui.register_screen.RegisterContract.Presenter" />
     <pattern value="com.example.mvp_application_java.ui.register_screen.RegisterContract" />
+    <pattern value="com.example.mvpapp.ui.login.LoginActivity" method="setupClickListener" />
+    <pattern value="com.example.mvpapp.repository.InputValidationRepository" method="getInstance" />
+    <pattern value="com.example.mvpapp.repository.InputValidationRepository" />
+    <pattern value="com.example.mvpapp.ui.login.LoginActivity" method="setUpTextChangedListener" />
+    <pattern value="com.example.mvpapp.ui.login.LoginContract.Presenter" method="performLoginProcess" />
+    <pattern value="com.example.mvpapp.ui.login.LoginContract.Presenter" />
+    <pattern value="com.example.mvpapp.ExampleUnitTest" method="addition_isCorrect" />
+    <pattern value="com.example.mvpapp.sqlite.UserDbHelper" method="deleteUser" />
+    <pattern value="com.example.mvpapp.ExampleInstrumentedTest" />
+    <pattern value="com.example.mvpapp.ExampleUnitTest" />
+    <pattern value="com.example.mvpapp.repository.UserDataSqliteRepository" method="getInstance" />
+    <pattern value="com.example.mvpapp.ui.dashboard.MainActivity" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterActivity" />
+    <pattern value="com.example.mvpapp.ui.welcome.WelcomeActivity" />
+    <pattern value="com.example.mvpapp.ui.login.LoginActivity" />
+    <pattern value="com.example.mvpapp.ui.login.LoginContract" />
+    <pattern value="com.example.mvpapp.ui.login.LoginPresenter" />
+    <pattern value="com.example.mvpapp.ui.login.LoginPresenter" method="LoginPresenter" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterContract.View" method="onAddressFieldError" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterContract.View" method="onConfirmPasswordFieldError" />
+    <pattern value="com.example.mvpapp.ui.dashboard.MainActivity" method="onCreate" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterContract.View" method="onEmailFieldError" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterContract.View" method="onErrorRegister" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterContract.View" method="onFullNameFieldError" />
+    <pattern value="com.example.mvpapp.ui.login.LoginContract.View" method="onLoginFailed" />
+    <pattern value="com.example.mvpapp.ui.login.LoginContract.View" method="onLoginSuccessfully" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterContract.View" method="onMobileNoFieldError" />
+    <pattern value="com.example.mvpapp.ui.login.LoginContract.View" method="onPasswordFieldError" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterContract.View" method="onPasswordFieldError" />
+    <pattern value="com.example.mvpapp.ui.login.LoginContract.View" method="onUserIdFieldError" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterContract.View" method="onUserIdFieldError" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterContract.Presenter" method="performRegistration" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterContract.Presenter" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterContract" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterPresenter" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterPresenter" method="RegisterPresenter" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterActivity" method="setupClickListener" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterActivity" method="setUpTextChangedListener" />
+    <pattern value="com.example.mvpapp.ExampleInstrumentedTest" method="useAppContext" />
+    <pattern value="com.example.mvpapp.repository.UserDataSqliteRepository" />
+    <pattern value="com.example.mvpapp.repository.UserDataSqliteRepository" method="UserDataSqliteRepository" />
+    <pattern value="com.example.mvpapp.sqlite.UserDbHelper" />
+    <pattern value="com.example.mvpapp.sqlite.UserDbHelper" method="UserDbHelper" />
+    <pattern value="com.example.mvpapp.ui.login.LoginContract.View" />
+    <pattern value="com.example.mvpapp.ui.register.RegisterContract.View" />
+    <pattern value="com.example.mvpapp.ui.login.LoginActivity" method="onLoginFailed" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

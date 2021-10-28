@@ -1,4 +1,4 @@
-package com.example.mvp_application_java;
+package com.example.mvpapp;
 
 import static org.junit.Assert.assertEquals;
 

@@ -1,4 +1,4 @@
-package com.example.mvp_application_java.repository;
+package com.example.mvpapp.repository;
 
 /**
  *

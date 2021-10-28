@@ -1,4 +1,4 @@
-package com.example.mvp_application_java.utility_class;
+package com.example.mvpapp.utility;
 
 /**
  * This class is utility class that is hold all the constant value for the app.

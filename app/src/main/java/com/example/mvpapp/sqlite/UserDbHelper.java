@@ -1,4 +1,4 @@
-package com.example.mvp_application_java.sqlite_db;
+package com.example.mvpapp.sqlite;
 
 import android.content.ContentValues;
 import android.content.Context;

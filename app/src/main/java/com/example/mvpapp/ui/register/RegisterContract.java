@@ -1,4 +1,4 @@
-package com.example.mvp_application_java.ui.register_screen;
+package com.example.mvpapp.ui.register;
 
 /**
  * This is Interface class all view and presenter method hold here

@@ -1,12 +1,12 @@
-package com.example.mvp_application_java.ui.welcome_screen;
+package com.example.mvpapp.ui.welcome;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mvp_application_java.R;
-import com.example.mvp_application_java.ui.login_screen.LoginActivity;
+import com.example.mvpapp.R;
+import com.example.mvpapp.ui.login.LoginActivity;
 
 import java.util.Objects;
 
@@ -21,7 +21,7 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        getSupportActionBar().hide();
         startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
         // close splash activity
         finish();

@@ -1,4 +1,4 @@
-package com.example.mvp_application_java.ui.login_screen;
+package com.example.mvpapp.ui.login;
 
 /**
  * This is Interface class all view and presenter method hold here
