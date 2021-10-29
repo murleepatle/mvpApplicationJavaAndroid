@@ -87,14 +87,15 @@ public class RegisterPresenter implements RegisterContract.IRegisterPresenter {
             view.onConfirmPasswordFieldError(R.string.error_match_password);
             return false;
         }
-        if (inputValidationRepository.emptyFieldValidate(mobileNo)) {
+      /* two field are not mandatory
+      if (inputValidationRepository.emptyFieldValidate(mobileNo)) {
             view.onMobileNoFieldError(R.string.error_mobile_number_empty);
             return false;
         }
         if (inputValidationRepository.emptyFieldValidate(address)) {
             view.onAddressFieldError(R.string.error_address_empty);
             return false;
-        }
+        }*/
 
         return true;
     }

@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">MVPApplicationJava</string>
     <string name="error_something_wrong">Something Is wrong.</string>
+    <string name="username_mandatory">User Name (*)</string>
     <string name="username">User Name</string>
-    <string name="full_name">Full Name</string>
-    <string name="email">Email</string>
+    <string name="full_name">Full Name (*)</string>
+    <string name="email">Email (*)</string>
     <string name="password">Password</string>
-    <string name="confirm_password">Confirm Password</string>
+    <string name="password_mandatory">Password (*)</string>
+    <string name="confirm_password">Confirm Password (*)</string>
     <string name="mobile">Mobile</string>
     <string name="address">Address</string>
     <string name="register">Register</string>
@@ -24,5 +26,12 @@
     <string name="error_invalid_user">Invalid Credential</string>
     <string name="ok">OK</string>
     <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="new_user_register_now">New user? Register Now</string>
+    <string name="already_nhave_an_naccount">Already \nhave an \nAccount?</string>
+    <string name="login_screen_logo">Login Screen Logo</string>
+    <string name="here_s_nyour_first_nstep_with_nus">Here’s\nyour first\nstep with \nus!</string>
+    <string name="register_page_back_button_image">Register Page Back Button Image</string>
+    <string name="already_have_an_account">Already have an account?</string>
 
 </resources>

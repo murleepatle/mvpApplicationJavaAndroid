@@ -1,7 +1,9 @@
 package com.example.mvpapp.ui.login;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,9 +32,11 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.IL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.M){
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
         activityLoginBinding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(activityLoginBinding.getRoot());
-        setTitle(R.string.user_login);
         loginPresenter = new LoginPresenter(this, InputValidationRepository.getInstance(), UserDataSqliteRepository.getInstance(new UserDbHelper(this)));
         setupClickListener();
         setUpTextChangedListener();
@@ -55,7 +59,17 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.IL
                 activityLoginBinding.username.getText().toString(),
                 activityLoginBinding.password.getText().toString()
         ));
-        activityLoginBinding.buttonRegister.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
+        activityLoginBinding.registerSlideImg.setOnClickListener(v -> {
+            navigateToSignUp();
+        });
+        activityLoginBinding.registerTv.setOnClickListener(v -> {
+            navigateToSignUp();
+        });
+    }
+
+    public void navigateToSignUp(){
+        startActivity(new Intent(this, RegisterActivity.class));
+        overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
     }
 
     /**

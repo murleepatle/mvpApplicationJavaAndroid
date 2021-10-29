@@ -1,6 +1,9 @@
 package com.example.mvpapp.ui.register;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +15,7 @@ import com.example.mvpapp.data.sqlite.UserDbHelper;
 import com.example.mvpapp.databinding.ActivityRegisterBinding;
 import com.example.mvpapp.interfaces.RegisterContract;
 import com.example.mvpapp.presenter.RegisterPresenter;
+import com.example.mvpapp.ui.login.LoginActivity;
 import com.example.mvpapp.utility.CustomWatcher;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -28,11 +32,22 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
         super.onCreate(savedInstanceState);
         activityRegisterBinding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(activityRegisterBinding.getRoot());
-        setTitle(R.string.register);
         registerPresenter = new RegisterPresenter(this, InputValidationRepository.getInstance(), UserDataSqliteRepository.getInstance(new UserDbHelper(this)));
         setupClickListener();
         setUpTextChangedListener();
+        changeStatusBarColor();
     }
+
+    /**
+     *
+     * This method is use for change status bar color
+     */
+    private void changeStatusBarColor() {
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(getResources().getColor(R.color.register_bk_color));
+    }
+
 
     /**
      * This method is handle click listener of all button .
@@ -47,6 +62,14 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
                 activityRegisterBinding.mobileNo.getText().toString(),
                 activityRegisterBinding.address.getText().toString()
         ));
+        activityRegisterBinding.imageView3.setOnClickListener(v -> {
+            onBackPressed();
+        });
+        activityRegisterBinding.alreadyAcTv.setOnClickListener(v -> {
+            onBackPressed();
+            overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
+
+        });
     }
 
     /**
