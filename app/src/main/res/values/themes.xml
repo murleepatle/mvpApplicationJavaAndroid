@@ -11,8 +11,9 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
     </style>
+
 
     <style name="Theme.MVPApplicationJava.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -46,6 +47,7 @@
     <style name="modifiedEditText" parent="parent">
         <item name="android:textSize">@dimen/newsMoreTextSize</item>
         <item name="android:backgroundTint">@color/primaryTextColor</item>
+        <item name="fontFamily">@font/alike</item>
     </style>
 
 </resources>

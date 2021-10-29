@@ -33,5 +33,6 @@
     <string name="here_s_nyour_first_nstep_with_nus">Here’s\nyour first\nstep with \nus!</string>
     <string name="register_page_back_button_image">Register Page Back Button Image</string>
     <string name="already_have_an_account">Already have an account?</string>
+    <string name="register_page_image">Register page Image</string>
 
 </resources>

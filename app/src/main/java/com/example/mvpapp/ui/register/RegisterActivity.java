@@ -1,6 +1,5 @@
 package com.example.mvpapp.ui.register;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
@@ -15,7 +14,6 @@ import com.example.mvpapp.data.sqlite.UserDbHelper;
 import com.example.mvpapp.databinding.ActivityRegisterBinding;
 import com.example.mvpapp.interfaces.RegisterContract;
 import com.example.mvpapp.presenter.RegisterPresenter;
-import com.example.mvpapp.ui.login.LoginActivity;
 import com.example.mvpapp.utility.CustomWatcher;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 

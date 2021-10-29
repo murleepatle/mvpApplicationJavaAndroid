@@ -29,6 +29,7 @@
             <TextView
                 android:id="@+id/label_tv"
                 style="@style/viewParent.headerText.NoMode"
+                android:fontFamily="@font/aladin"
                 android:text="@string/here_s_nyour_first_nstep_with_nus"
                 android:textColor="@color/whiteTextColor"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView2"
@@ -46,7 +47,8 @@
                 android:src="@drawable/ic_login_hero"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/label_tv"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/register_page_image" />
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -74,8 +76,7 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/fullName"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/modifiedEditText"
                             android:inputType="textPersonName" />
 
 
@@ -93,8 +94,7 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/username"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/modifiedEditText"
                             android:inputType="textPersonName" />
 
 
@@ -112,8 +112,7 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/email"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/modifiedEditText"
                             android:inputType="textEmailAddress" />
 
 
@@ -131,8 +130,7 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/password"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/modifiedEditText"
                             android:inputType="textPassword" />
 
 
@@ -150,8 +148,7 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/confirmPassword"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/modifiedEditText"
                             android:inputType="textPassword"
                             app:passwordToggleEnabled="true" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -166,8 +163,7 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/mobileNo"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/modifiedEditText"
                             android:inputType="number"
                             app:passwordToggleEnabled="true" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -183,8 +179,7 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/address"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/modifiedEditText"
                             android:inputType="textPostalAddress|textMultiLine"
                             android:maxLines="4"
                             android:minLines="4"
@@ -203,6 +198,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="8dp"
+        android:fontFamily="@font/alegreya_sc"
         android:backgroundTint="@color/colorPrimary"
         android:text="@string/register"
         android:textAllCaps="false"
@@ -221,6 +217,7 @@
         android:textColor="@color/colorPrimary"
         android:textSize="17sp"
         android:textStyle="bold"
+        android:fontFamily="@font/aladin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerButton" />
