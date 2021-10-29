@@ -49,9 +49,9 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="12dp"
                 app:cardCornerRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
@@ -237,8 +237,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:adjustViewBounds="false"
+        android:contentDescription="@string/register_page_back_button_image"
         android:src="@drawable/ic_back_img"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="@string/register_page_back_button_image" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
