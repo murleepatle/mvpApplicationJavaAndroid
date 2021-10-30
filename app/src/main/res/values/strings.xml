@@ -2,7 +2,7 @@
     <string name="app_name">MVPApplicationJava</string>
     <string name="error_something_wrong">Something Is wrong.</string>
     <string name="username_mandatory">User Name (*)</string>
-    <string name="username">User Name</string>
+    <string name="user_name">User Name</string>
     <string name="full_name">Full Name (*)</string>
     <string name="email">Email (*)</string>
     <string name="password">Password</string>
@@ -34,5 +34,11 @@
     <string name="register_page_back_button_image">Register Page Back Button Image</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="register_page_image">Register page Image</string>
+    <string name="error">\"Error : \"</string>
+    <string name="please_enter_pin_code">Please Enter Pin Code.</string>
+    <string name="pin_code">Pin Code</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="post_office_image">post office image</string>
+    <string name="click_on_search_icon_to_search_post_office_detail_by_pin_code">click on search icon to search post office detail by Pin code</string>
 
 </resources>

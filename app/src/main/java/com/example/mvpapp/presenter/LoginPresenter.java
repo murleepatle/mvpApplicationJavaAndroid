@@ -1,6 +1,7 @@
 package com.example.mvpapp.presenter;
 
 import com.example.mvpapp.R;
+import com.example.mvpapp.data.prefrense.SharedPreferencesManager;
 import com.example.mvpapp.data.repository.InputValidationRepository;
 import com.example.mvpapp.data.repository.UserDataSqliteRepository;
 import com.example.mvpapp.interfaces.LoginContract;
@@ -12,11 +13,13 @@ public class LoginPresenter implements LoginContract.ILoginPresenter {
     private final LoginContract.ILoginView view;
     private final InputValidationRepository inputValidationRepository;
     private final UserDataSqliteRepository userDataSqliteRepository;
+    private final SharedPreferencesManager sharedPreferencesManager;
 
-    public LoginPresenter(LoginContract.ILoginView view, InputValidationRepository inputValidationRepository, UserDataSqliteRepository userDataSqliteRepository) {
+    public LoginPresenter(LoginContract.ILoginView view, UserDataSqliteRepository userDataSqliteRepository, SharedPreferencesManager sharedPreferencesManager) {
         this.view = view;
-        this.inputValidationRepository = inputValidationRepository;
+        this.inputValidationRepository =  InputValidationRepository.getInstance();
         this.userDataSqliteRepository = userDataSqliteRepository;
+        this.sharedPreferencesManager = sharedPreferencesManager;
     }
 
 
@@ -55,6 +58,7 @@ public class LoginPresenter implements LoginContract.ILoginPresenter {
         if (isUserInputIsValidate(userId, password)) {
             boolean userLoginResponse = userDataSqliteRepository.checkUserCredentials(userId, password);
             if (userLoginResponse) {
+                sharedPreferencesManager.setIsUserLogin(true);
                 view.onLoginSuccessfully(userId);
             } else {
                 view.onLoginFailed(R.string.error_invalid_user);

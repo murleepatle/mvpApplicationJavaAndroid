@@ -30,14 +30,13 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
         super.onCreate(savedInstanceState);
         activityRegisterBinding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(activityRegisterBinding.getRoot());
-        registerPresenter = new RegisterPresenter(this, InputValidationRepository.getInstance(), UserDataSqliteRepository.getInstance(new UserDbHelper(this)));
+        registerPresenter = new RegisterPresenter(this, UserDataSqliteRepository.getInstance(new UserDbHelper(this)));
         setupClickListener();
         setUpTextChangedListener();
         changeStatusBarColor();
     }
 
     /**
-     *
      * This method is use for change status bar color
      */
     private void changeStatusBarColor() {
@@ -65,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
         });
         activityRegisterBinding.alreadyAcTv.setOnClickListener(v -> {
             onBackPressed();
-            overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
+            overridePendingTransition(R.anim.slide_in_left, android.R.anim.slide_out_right);
 
         });
     }

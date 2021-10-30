@@ -13,9 +13,9 @@ public class RegisterPresenter implements RegisterContract.IRegisterPresenter {
     private final UserDataSqliteRepository userDataSqliteRepository;
     private final InputValidationRepository inputValidationRepository;
 
-    public RegisterPresenter(RegisterContract.IRegisterView view, InputValidationRepository inputValidationRepository, UserDataSqliteRepository userDataSqliteRepository) {
+    public RegisterPresenter(RegisterContract.IRegisterView view, UserDataSqliteRepository userDataSqliteRepository) {
         this.view = view;
-        this.inputValidationRepository = inputValidationRepository;
+        this.inputValidationRepository = InputValidationRepository.getInstance();
         this.userDataSqliteRepository = userDataSqliteRepository;
     }
 
