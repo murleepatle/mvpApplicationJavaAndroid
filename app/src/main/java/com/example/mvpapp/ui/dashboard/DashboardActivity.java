@@ -1,11 +1,8 @@
 package com.example.mvpapp.ui.dashboard;
 
 import android.app.ProgressDialog;
-import android.app.SearchManager;
-import android.content.Context;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +10,6 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.mvpapp.R;
-import com.example.mvpapp.data.model.PostOffice;
 import com.example.mvpapp.data.model.WeatherDataResponse;
 import com.example.mvpapp.databinding.ActivityDashboardBinding;
 import com.example.mvpapp.interfaces.DashboardContract;
@@ -21,9 +17,7 @@ import com.example.mvpapp.presenter.DashboardPresenter;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 /**
  * MainActivity Class is a dashboard class that will show user detail main page
@@ -32,13 +26,12 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
 
     private DashboardPresenter dashboardPresenter;
     private PostOfficeAdapter postOfficeAdapter;
-    private ActivityDashboardBinding activityDashboardBinding;
     private ProgressDialog progressBar ;
-
+    ActivityDashboardBinding activityDashboardBinding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityDashboardBinding = ActivityDashboardBinding.inflate(getLayoutInflater());
+       activityDashboardBinding = ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(activityDashboardBinding.getRoot());
         setTitle(getString(R.string.dashboard));
         progressBar = new ProgressDialog(this);
@@ -61,7 +54,8 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
             @Override
             public boolean onQueryTextChange(String newText) {
                 postOfficeAdapter.updateList(new ArrayList<>());
-                activityDashboardBinding.tvStatus.setText((getString(R.string.search)+ newText));
+                activityDashboardBinding.emptyImg.setVisibility(View.VISIBLE);
+
                 return false;
             }
         });
@@ -70,6 +64,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
 
     @Override
     public void onWeatherDataFetchSuccessfully(WeatherDataResponse weatherDataResponse) {
+        activityDashboardBinding.emptyImg.setVisibility(View.GONE);
         postOfficeAdapter.updateList(Collections.singletonList(weatherDataResponse));
     }
 

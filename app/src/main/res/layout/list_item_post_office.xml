@@ -16,6 +16,7 @@
             android:id="@+id/textViewLocation"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="@font/alike"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
             android:textColor="@color/white" />
 
@@ -24,8 +25,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:fontFamily="@font/alike"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-            android:textColor="@color/black"
+            android:textColor="@android:color/holo_orange_dark"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:fontFamily="@font/alegreya_sc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewTemp" />
 
@@ -45,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:fontFamily="@font/alegreya_sc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewType" />
 
@@ -54,6 +58,7 @@
             android:layout_height="match_parent"
             android:gravity="end"
             android:textSize="12sp"
+            android:fontFamily="sans-serif-thin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewHumidity" />
 

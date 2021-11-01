@@ -43,5 +43,6 @@
     <string name="click_on_search_icon_to_search_post_office_detail_by_pin_code">click on search icon to search post office detail by Pin code</string>
     <string name="last_update">Update on:</string>
     <string name="humidity">Humidity :</string>
+    <string name="search_weather_according_to_city">Search weather according to City</string>
 
 </resources>
