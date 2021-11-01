@@ -6,7 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mvpapp.R;
-import com.example.mvpapp.data.prefrense.SharedPreferencesManager;
+import com.example.mvpapp.data.preference.SharedPreferencesManager;
 import com.example.mvpapp.interfaces.WelcomeContract;
 import com.example.mvpapp.presenter.WelcomePresenter;
 import com.example.mvpapp.ui.dashboard.DashboardActivity;

@@ -1,17 +1,12 @@
 package com.example.mvpapp.data.network;
 
-import com.example.mvpapp.data.model.PostOfficeResponse;
+import com.example.mvpapp.data.model.WeatherDataResponse;
 
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiInterface {
-
-    @GET("pincode/{pincode}")
-    Call<ResponseBody> getPostalDetail(@Path("pincode") String pincode);
-
-
+    @GET("v1/current.json")
+    Call<WeatherDataResponse> getWeatherDetail(@Query("key") String key, @Query("q") String query);
 }

@@ -1,7 +1,7 @@
 package com.example.mvpapp.presenter;
 
 import com.example.mvpapp.R;
-import com.example.mvpapp.data.prefrense.SharedPreferencesManager;
+import com.example.mvpapp.data.preference.SharedPreferencesManager;
 import com.example.mvpapp.data.repository.InputValidationRepository;
 import com.example.mvpapp.data.repository.UserDataSqliteRepository;
 import com.example.mvpapp.interfaces.LoginContract;

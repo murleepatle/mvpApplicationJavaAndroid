@@ -1,6 +1,7 @@
 package com.example.mvpapp.interfaces;
 
 import com.example.mvpapp.data.model.PostOffice;
+import com.example.mvpapp.data.model.WeatherDataResponse;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface DashboardContract {
      * Represents the View in MVP.
      */
     interface IDashboardView {
-        void onPostOfficeFetchSuccessfully(List<PostOffice> postOffices);
+        void onWeatherDataFetchSuccessfully(WeatherDataResponse weatherDataResponse);
 
         void onErrorPostOfficeFetch(String errorMsg);
         void onErrorInputPin(int errorMsgResourceId);

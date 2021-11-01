@@ -2,6 +2,7 @@ package com.example.mvpapp.presenter;
 
 import com.example.mvpapp.R;
 import com.example.mvpapp.data.model.PostOffice;
+import com.example.mvpapp.data.model.WeatherDataResponse;
 import com.example.mvpapp.data.network.Callback;
 import com.example.mvpapp.data.repository.APICallingRepository;
 import com.example.mvpapp.data.repository.InputValidationRepository;
@@ -27,10 +28,10 @@ public class DashboardPresenter implements DashboardContract.IDashboardPresenter
             view.onErrorInputPin(R.string.please_enter_pin_code);
             view.onProgressEnd();
         }else {
-            apiCallingRepository.getPinCodeOffice(pinCode, new Callback<List<PostOffice>>() {
+            apiCallingRepository.getPinCodeOffice(pinCode, new Callback<WeatherDataResponse>() {
                 @Override
-                public void returnResult(List<PostOffice> postOffices) {
-                    view.onPostOfficeFetchSuccessfully(postOffices);
+                public void returnResult(WeatherDataResponse weatherDataResponse) {
+                    view.onWeatherDataFetchSuccessfully(weatherDataResponse);
                     view.onProgressEnd();
                 }
 

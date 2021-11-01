@@ -10,7 +10,8 @@
         <entry key="app/src/main/res/drawable/ic_register_hero.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/ic_side_bg.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/splash_background.xml" value="0.2984375" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.20697463768115942" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13728470111448834" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.13728470111448834" />

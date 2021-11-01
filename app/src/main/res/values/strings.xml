@@ -37,6 +37,7 @@
     <string name="error">\"Error : \"</string>
     <string name="please_enter_pin_code">Please Enter Pin Code.</string>
     <string name="pin_code">Pin Code</string>
+    <string name="search">Search  :</string>
     <string name="dashboard">Dashboard</string>
     <string name="post_office_image">post office image</string>
     <string name="click_on_search_icon_to_search_post_office_detail_by_pin_code">click on search icon to search post office detail by Pin code</string>

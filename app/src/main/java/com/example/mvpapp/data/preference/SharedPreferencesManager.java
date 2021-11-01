@@ -1,4 +1,4 @@
-package com.example.mvpapp.data.prefrense;
+package com.example.mvpapp.data.preference;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,7 +7,7 @@ public final class SharedPreferencesManager {
     private  static final String MY_APP_PREFERENCES = "ca7eed88-2409-4de7-b529-52598af76734";
     private static final String IS_USER_LOGIN = "is_user_login";
 
-    private SharedPreferences sharedPrefs;
+    private final SharedPreferences sharedPrefs;
     private static SharedPreferencesManager instance;
 
     private SharedPreferencesManager(Context context){

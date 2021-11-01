@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.example.mvpapp.R;
-import com.example.mvpapp.data.prefrense.SharedPreferencesManager;
+import com.example.mvpapp.data.preference.SharedPreferencesManager;
 import com.example.mvpapp.data.repository.UserDataSqliteRepository;
 import com.example.mvpapp.data.sqlite.UserDbHelper;
 import com.example.mvpapp.databinding.ActivityLoginBinding;

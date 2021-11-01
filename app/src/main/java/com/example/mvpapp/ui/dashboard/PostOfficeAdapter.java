@@ -11,14 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mvpapp.R;
 import com.example.mvpapp.data.model.PostOffice;
+import com.example.mvpapp.data.model.WeatherDataResponse;
 
 import java.util.List;
 
 public class PostOfficeAdapter extends RecyclerView.Adapter<PostOfficeAdapter.ViewHolder>{
-    private final List<PostOffice> postOffices;
+    private final List<WeatherDataResponse> weatherDataResponses;
 
-    public PostOfficeAdapter(List<PostOffice> postOffices) {
-        this.postOffices = postOffices;
+    public PostOfficeAdapter(List<WeatherDataResponse> weatherDataResponses) {
+        this.weatherDataResponses = weatherDataResponses;
     }  
     @NonNull
     @Override
@@ -30,33 +31,36 @@ public class PostOfficeAdapter extends RecyclerView.Adapter<PostOfficeAdapter.Vi
   
     @Override  
     public void onBindViewHolder(ViewHolder holder, int position) {  
-        final PostOffice postOffice = postOffices.get(position);
-        holder.textView.setText(postOffice.getName());
-        holder.textViewType.setText(postOffice.getBranchType());
+        final WeatherDataResponse weatherDataResponse = weatherDataResponses.get(position);
+        holder.textViewLocation.setText(weatherDataResponse.getLocation().getName());
+        holder.textViewType.setText(weatherDataResponse.getCurrent().getCondition().getText());
+        holder.textViewTemp.setText((weatherDataResponse.getCurrent().getTempF()+"°C"));
+        holder.textViewHumidity.setText((weatherDataResponse.getCurrent().getHumidity().toString()));
+        holder.textViewLastUpdated.setText(weatherDataResponse.getCurrent().getLastUpdated());
 
     }  
   
   
     @Override  
     public int getItemCount() {  
-        return postOffices.size();
+        return weatherDataResponses.size();
     }
 
-    public void updateList(List<PostOffice> postOffices) {
-        this.postOffices.clear();
-        this.postOffices.addAll(postOffices);
+    public void updateList(List<WeatherDataResponse> weatherDataResponses) {
+        this.weatherDataResponses.clear();
+        this.weatherDataResponses.addAll(weatherDataResponses);
         notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {  
-        public ImageView imageView;
-        public TextView textView;
-        public TextView textViewType;
+        public TextView textViewLocation,textViewType,textViewTemp,textViewHumidity,textViewLastUpdated;
         public ViewHolder(View itemView) {
             super(itemView);  
-            this.imageView = (ImageView) itemView.findViewById(R.id.imageViewPostOffice);
-            this.textView = (TextView) itemView.findViewById(R.id.textViewPOName);
-            this.textViewType = (TextView) itemView.findViewById(R.id.textViewPOType);
+            this.textViewLocation = (TextView) itemView.findViewById(R.id.textViewLocation);
+            this.textViewType = (TextView) itemView.findViewById(R.id.textViewType);
+            this.textViewTemp = (TextView) itemView.findViewById(R.id.textViewTemp);
+            this.textViewHumidity = (TextView) itemView.findViewById(R.id.textViewHumidity);
+            this.textViewLastUpdated = (TextView) itemView.findViewById(R.id.textViewLastUpdated);
         }
     }  
 }  

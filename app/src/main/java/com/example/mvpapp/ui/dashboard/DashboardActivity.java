@@ -14,19 +14,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.mvpapp.R;
 import com.example.mvpapp.data.model.PostOffice;
+import com.example.mvpapp.data.model.WeatherDataResponse;
 import com.example.mvpapp.databinding.ActivityDashboardBinding;
 import com.example.mvpapp.interfaces.DashboardContract;
 import com.example.mvpapp.presenter.DashboardPresenter;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * MainActivity Class is a dashboard class that will show user detail main page
  */
 public class DashboardActivity extends AppCompatActivity implements DashboardContract.IDashboardView {
-    SearchView searchView;
 
     private DashboardPresenter dashboardPresenter;
     private PostOfficeAdapter postOfficeAdapter;
@@ -48,11 +50,27 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
         activityDashboardBinding.recyclerViewPostOffice.setHasFixedSize(true);
         activityDashboardBinding.recyclerViewPostOffice.setLayoutManager(new LinearLayoutManager(this));
         activityDashboardBinding.recyclerViewPostOffice.setAdapter(postOfficeAdapter);
+
+        activityDashboardBinding.simpleSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                dashboardPresenter.fetchPostOfficeDetailByPinCode(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                postOfficeAdapter.updateList(new ArrayList<>());
+                activityDashboardBinding.tvStatus.setText((getString(R.string.search)+ newText));
+                return false;
+            }
+        });
+        activityDashboardBinding.simpleSearchView.onActionViewExpanded();
     }
 
     @Override
-    public void onPostOfficeFetchSuccessfully(List<PostOffice> postOffices) {
-        postOfficeAdapter.updateList(postOffices);
+    public void onWeatherDataFetchSuccessfully(WeatherDataResponse weatherDataResponse) {
+        postOfficeAdapter.updateList(Collections.singletonList(weatherDataResponse));
     }
 
     @Override
@@ -79,33 +97,5 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
         progressBar.hide();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the options menu from XML
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.options_menu, menu);
-
-        // Get the SearchView and set the searchable configuration
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-         searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-        // Assumes current activity is the searchable activity
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setIconifiedByDefault(true); // Do not iconify the widget; expand it by default
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                dashboardPresenter.fetchPostOfficeDetailByPinCode(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                postOfficeAdapter.updateList(new ArrayList<>());
-                activityDashboardBinding.statusTv.setText((getString(R.string.pin_code)+ newText));
-                return false;
-            }
-        });
-        return true;
-    }
 
 }
