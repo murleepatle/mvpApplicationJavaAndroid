@@ -3,14 +3,12 @@ package com.example.mvpapp.ui.dashboard;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mvpapp.R;
-import com.example.mvpapp.data.model.PostOffice;
 import com.example.mvpapp.data.model.WeatherDataResponse;
 
 import java.util.List;
@@ -34,9 +32,9 @@ public class PostOfficeAdapter extends RecyclerView.Adapter<PostOfficeAdapter.Vi
         final WeatherDataResponse weatherDataResponse = weatherDataResponses.get(position);
         holder.textViewLocation.setText(weatherDataResponse.getLocation().getName());
         holder.textViewType.setText(weatherDataResponse.getCurrent().getCondition().getText());
-        holder.textViewTemp.setText((weatherDataResponse.getCurrent().getTempF()+"°C"));
-        holder.textViewHumidity.setText((weatherDataResponse.getCurrent().getHumidity().toString()));
-        holder.textViewLastUpdated.setText(weatherDataResponse.getCurrent().getLastUpdated());
+        holder.textViewTemp.setText((weatherDataResponse.getCurrent().getTempC()+"/°C"));
+        holder.textViewHumidity.setText((holder.itemView.getContext().getString(R.string.humidity) +(weatherDataResponse.getCurrent().getHumidity().toString())));
+        holder.textViewLastUpdated.setText((holder.itemView.getContext().getString(R.string.last_update) + weatherDataResponse.getCurrent().getLastUpdated()));
 
     }  
   
