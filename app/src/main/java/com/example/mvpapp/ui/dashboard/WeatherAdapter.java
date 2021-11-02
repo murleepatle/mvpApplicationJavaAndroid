@@ -13,10 +13,10 @@ import com.example.mvpapp.data.model.WeatherDataResponse;
 
 import java.util.List;
 
-public class PostOfficeAdapter extends RecyclerView.Adapter<PostOfficeAdapter.ViewHolder>{
+public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHolder>{
     private final List<WeatherDataResponse> weatherDataResponses;
 
-    public PostOfficeAdapter(List<WeatherDataResponse> weatherDataResponses) {
+    public WeatherAdapter(List<WeatherDataResponse> weatherDataResponses) {
         this.weatherDataResponses = weatherDataResponses;
     }  
     @NonNull

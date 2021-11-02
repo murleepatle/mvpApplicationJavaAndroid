@@ -34,7 +34,7 @@ public class APICallingRepository {
      * @param query  this is query of that particular area.
      * @param callback this is callback the response after analyse the api response.
      */
-    public void getPinCodeOffice(String query, Callback<WeatherDataResponse> callback) {
+    public void getWeatherDetail(String query, Callback<WeatherDataResponse> callback) {
         Call<WeatherDataResponse> call = RetrofitClient.getInstance().getApiInterface().getWeatherDetail("1d2143b52d61412080f72448210111",query);
         call.enqueue(new retrofit2.Callback<WeatherDataResponse>() {
             @Override

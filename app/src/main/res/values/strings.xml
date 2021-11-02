@@ -26,6 +26,7 @@
     <string name="error_invalid_user">Invalid Credential</string>
     <string name="ok">OK</string>
     <string name="login">Login</string>
+    <string name="logout">Logout</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="new_user_register_now">New user? Register Now</string>
     <string name="already_nhave_an_naccount">Already \nhave an \nAccount?</string>
@@ -35,7 +36,7 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="register_page_image">Register page Image</string>
     <string name="error">\"Error : \"</string>
-    <string name="please_enter_pin_code">Please Enter Pin Code.</string>
+    <string name="please_enter_location">Please Enter Location.</string>
     <string name="pin_code">Pin Code</string>
     <string name="search">Search  :</string>
     <string name="dashboard">Dashboard</string>
@@ -44,5 +45,8 @@
     <string name="last_update">Update on:</string>
     <string name="humidity">Humidity :</string>
     <string name="search_weather_according_to_city">Search weather according to City</string>
+    <string name="internet_msg">Please check internet connection retry to search.</string>
+    <string name="internet_title">Internet Available!</string>
+    <string name="enter_location">Enter Location</string>
 
 </resources>
