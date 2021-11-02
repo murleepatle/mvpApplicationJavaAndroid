@@ -59,6 +59,7 @@ public class LoginPresenter implements LoginContract.ILoginPresenter {
             boolean userLoginResponse = userDataSqliteRepository.checkUserCredentials(userId, password);
             if (userLoginResponse) {
                 sharedPreferencesManager.setIsUserLogin(true);
+                sharedPreferencesManager.setSaveUserID(userId);
                 view.onLoginSuccessfully(userId);
             } else {
                 view.onLoginFailed(R.string.error_invalid_user);

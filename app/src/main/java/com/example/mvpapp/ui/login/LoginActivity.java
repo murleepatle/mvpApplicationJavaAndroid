@@ -17,7 +17,9 @@ import com.example.mvpapp.databinding.ActivityLoginBinding;
 import com.example.mvpapp.interfaces.LoginContract;
 import com.example.mvpapp.presenter.LoginPresenter;
 import com.example.mvpapp.ui.dashboard.DashboardActivity;
+import com.example.mvpapp.ui.dashboard.MainActivity;
 import com.example.mvpapp.ui.register.RegisterActivity;
+import com.example.mvpapp.utility.ConstantValue;
 import com.example.mvpapp.utility.CustomWatcher;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -79,7 +81,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.IL
     @Override
     public void onLoginSuccessfully(String userId) {
         Toast.makeText(this, R.string.user_login_successfully, Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, DashboardActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();

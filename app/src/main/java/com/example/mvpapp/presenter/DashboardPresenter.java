@@ -58,7 +58,9 @@ public class DashboardPresenter implements DashboardContract.IDashboardPresenter
 
     @Override
     public void logoutUser() {
+        view.onProgressStart("Logout");
         sharedPreferencesManager.setIsUserLogin(false);
         view.onUserLogout();
+        view.onProgressEnd();
     }
 }

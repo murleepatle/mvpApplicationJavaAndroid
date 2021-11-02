@@ -45,6 +45,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
        activityDashboardBinding = ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(activityDashboardBinding.getRoot());
         setTitle(getString(R.string.dashboard));
+        startActivity(new Intent(this,MainActivity.class));
         progressBar = new ProgressDialog(this);
         progressBar.setCancelable(false);
         progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
