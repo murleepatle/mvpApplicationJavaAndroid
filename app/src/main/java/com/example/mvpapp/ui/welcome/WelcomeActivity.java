@@ -9,10 +9,8 @@ import com.example.mvpapp.R;
 import com.example.mvpapp.data.preference.SharedPreferencesManager;
 import com.example.mvpapp.interfaces.WelcomeContract;
 import com.example.mvpapp.presenter.WelcomePresenter;
-import com.example.mvpapp.ui.dashboard.DashboardActivity;
 import com.example.mvpapp.ui.dashboard.MainActivity;
 import com.example.mvpapp.ui.login.LoginActivity;
-import com.example.mvpapp.utility.ConstantValue;
 
 /**
  * This is the Welcome screen that call when our app is open.

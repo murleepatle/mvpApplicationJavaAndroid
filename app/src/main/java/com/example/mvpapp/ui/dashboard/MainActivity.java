@@ -17,11 +17,15 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.mvpapp.R;
+import com.example.mvpapp.data.model.UserDetail;
 import com.example.mvpapp.data.preference.SharedPreferencesManager;
+import com.example.mvpapp.data.repository.UserDataSqliteRepository;
+import com.example.mvpapp.data.sqlite.UserDbHelper;
 import com.example.mvpapp.databinding.ActivityMainBinding;
 import com.example.mvpapp.interfaces.MainActivityContract;
 import com.example.mvpapp.presenter.MainActivityPresenter;
 import com.example.mvpapp.ui.welcome.WelcomeActivity;
+import com.example.mvpapp.utility.ConstantValue;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     private ActivityMainBinding binding;
     private MainActivityPresenter presenter;
     private ProgressDialog progressBar;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +48,9 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        presenter = new MainActivityPresenter(this, SharedPreferencesManager.getInstance(this));
+        presenter = new MainActivityPresenter(this, SharedPreferencesManager.getInstance(this), UserDataSqliteRepository.getInstance(new UserDbHelper(this)));
         DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+        navigationView = binding.navView;
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
@@ -55,10 +58,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         NavigationUI.setupWithNavController(binding.appBarMain.bottomNavigationView, navController);
-        View hView = navigationView.getHeaderView(0);
-        TextView navUser = hView.findViewById(R.id.user_name_tv);
-        TextView navEmail = hView.findViewById(R.id.email_tv);
 
+        presenter.fetchLoginUser();
     }
 
     @Override
@@ -107,5 +108,14 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onUserDetail(UserDetail userDetail) {
+        View hView = navigationView.getHeaderView(0);
+        TextView navUser = hView.findViewById(R.id.user_name_tv);
+        TextView navEmail = hView.findViewById(R.id.email_tv);
+        navUser.setText(userDetail.getFullName());
+        navEmail.setText(userDetail.getEmail());
     }
 }

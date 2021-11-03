@@ -16,10 +16,8 @@ import com.example.mvpapp.data.sqlite.UserDbHelper;
 import com.example.mvpapp.databinding.ActivityLoginBinding;
 import com.example.mvpapp.interfaces.LoginContract;
 import com.example.mvpapp.presenter.LoginPresenter;
-import com.example.mvpapp.ui.dashboard.DashboardActivity;
 import com.example.mvpapp.ui.dashboard.MainActivity;
 import com.example.mvpapp.ui.register.RegisterActivity;
-import com.example.mvpapp.utility.ConstantValue;
 import com.example.mvpapp.utility.CustomWatcher;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 

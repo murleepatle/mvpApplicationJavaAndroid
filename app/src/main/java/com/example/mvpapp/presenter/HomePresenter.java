@@ -1,28 +1,23 @@
 package com.example.mvpapp.presenter;
 
 import com.example.mvpapp.R;
-import com.example.mvpapp.data.model.PostOffice;
 import com.example.mvpapp.data.model.WeatherDataResponse;
 import com.example.mvpapp.data.network.Callback;
 import com.example.mvpapp.data.preference.SharedPreferencesManager;
 import com.example.mvpapp.data.repository.APICallingRepository;
 import com.example.mvpapp.data.repository.InputValidationRepository;
-import com.example.mvpapp.interfaces.DashboardContract;
+import com.example.mvpapp.interfaces.HomeContract;
 import com.example.mvpapp.utility.InternetUtils;
 
-import java.util.List;
-
-public class DashboardPresenter implements DashboardContract.IDashboardPresenter {
+public class HomePresenter implements HomeContract.IHomePresenter {
     APICallingRepository apiCallingRepository;
     InputValidationRepository inputValidationRepository;
-    DashboardContract.IDashboardView view;
-    private final SharedPreferencesManager sharedPreferencesManager;
+    HomeContract.IHomeView view;
     InternetUtils internetUtils;
-    public DashboardPresenter(DashboardContract.IDashboardView view, SharedPreferencesManager sharedPreferencesManager, InternetUtils internetUtils){
+    public HomePresenter(HomeContract.IHomeView view, InternetUtils internetUtils){
         this.view=view;
         this.apiCallingRepository=APICallingRepository.getInstance();
         this.inputValidationRepository =  InputValidationRepository.getInstance();
-        this.sharedPreferencesManager = sharedPreferencesManager;
         this.internetUtils=internetUtils;
 
     }
@@ -56,11 +51,5 @@ public class DashboardPresenter implements DashboardContract.IDashboardPresenter
 
 
 
-    @Override
-    public void logoutUser() {
-        view.onProgressStart("Logout");
-        sharedPreferencesManager.setIsUserLogin(false);
-        view.onUserLogout();
-        view.onProgressEnd();
-    }
+
 }

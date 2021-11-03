@@ -2,6 +2,7 @@ package com.example.mvpapp.data.repository;
 
 import android.content.ContentValues;
 
+import com.example.mvpapp.data.model.UserDetail;
 import com.example.mvpapp.data.sqlite.UserDbHelper;
 import com.example.mvpapp.data.sqlite.UserFieldContract;
 
@@ -72,4 +73,7 @@ public class UserDataSqliteRepository {
     }
 
 
+    public UserDetail getUserDetail(String userID) {
+        return sqliteHelper.getUserDetail(userID);
+    }
 }

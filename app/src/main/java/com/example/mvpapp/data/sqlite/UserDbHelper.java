@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.mvpapp.data.model.UserDetail;
+
 /**
  * This class is Sqlite Helper class this class create ,upgrade and downgrade our database.
  */
@@ -131,6 +133,39 @@ public class UserDbHelper extends SQLiteOpenHelper {
         }
         return userExist;
     }
+
+
+    /**
+     * This method check if the user existing or not, and it will return boolean value.
+     *
+     * @param userId carrier the email of user.
+     * @return true/false.
+     **/
+    public UserDetail getUserDetail(String userId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        boolean userExist;
+        String selection = UserFieldContract.UserEntry.COLUMN_USER_ID + " =? ";
+        String[] args = {userId};
+
+        Cursor cursor = db.query(UserFieldContract.UserEntry.TABLE_NAME, null,
+                selection, args, null, null, null);
+        userExist = cursor != null && cursor.moveToFirst();
+
+        if (userExist) {
+            UserDetail userDetail=new UserDetail(cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5)
+                    );
+            cursor.close();
+            return userDetail;
+        }else {
+            return null;
+        }
+    }
+
 
     /**
      * This method delete user details permanently, and it returns boolean value.
