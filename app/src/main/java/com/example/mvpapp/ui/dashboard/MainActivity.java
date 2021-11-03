@@ -112,10 +112,14 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
 
     @Override
     public void onUserDetail(UserDetail userDetail) {
-        View hView = navigationView.getHeaderView(0);
-        TextView navUser = hView.findViewById(R.id.user_name_tv);
-        TextView navEmail = hView.findViewById(R.id.email_tv);
-        navUser.setText(userDetail.getFullName());
-        navEmail.setText(userDetail.getEmail());
+        if (userDetail != null) {
+            View hView = navigationView.getHeaderView(0);
+            TextView navUser = hView.findViewById(R.id.user_name_tv);
+            TextView navEmail = hView.findViewById(R.id.email_tv);
+            navUser.setText(userDetail.getFullName());
+            navEmail.setText(userDetail.getEmail());
+        }else {
+            presenter.logoutUser();
+        }
     }
 }
