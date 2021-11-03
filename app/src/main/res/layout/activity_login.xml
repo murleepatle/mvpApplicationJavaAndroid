@@ -9,7 +9,7 @@
     tools:context=".ui.login.LoginActivity">
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/mainScrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:paddingTop="20dp"
@@ -24,25 +24,25 @@
             android:padding="20dp">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/labelTextView"
                 style="@style/viewParent.headerText.NoMode"
                 android:fontFamily="@font/aladin"
                 android:text="@string/already_nhave_an_naccount"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:layout_constraintBottom_toBottomOf="@+id/labelImageView"
+                app:layout_constraintEnd_toStartOf="@+id/labelImageView"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imageView" />
+                app:layout_constraintTop_toTopOf="@+id/labelImageView" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/labelImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:contentDescription="@string/login_screen_logo"
                 android:src="@drawable/ic_register_hero"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintStart_toEndOf="@+id/labelTextView"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -56,7 +56,7 @@
                 android:hint="@string/user_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView">
+                app:layout_constraintTop_toBottomOf="@+id/labelImageView">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_name_tv"
@@ -91,7 +91,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textViewForgetPsw"
                 style="@style/viewParent"
                 android:layout_gravity="end"
                 android:fontFamily="@font/alike"
@@ -112,7 +112,7 @@
                 app:cornerRadius="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewForgetPsw" />
 
             <TextView
                 android:id="@+id/register_tv"
@@ -135,7 +135,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:background="@drawable/ic_side_bg"
-        app:layout_constraintEnd_toEndOf="@+id/scrollView2" />
+        app:layout_constraintEnd_toEndOf="@+id/mainScrollView" />
 
     <ImageView
         android:id="@+id/register_slide_img"
@@ -144,5 +144,6 @@
         android:layout_marginBottom="8dp"
         android:src="@drawable/ic_add_img"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/slide_image" />
 </androidx.constraintlayout.widget.ConstraintLayout>

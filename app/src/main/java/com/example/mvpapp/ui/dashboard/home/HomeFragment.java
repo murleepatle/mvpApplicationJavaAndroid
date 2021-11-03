@@ -46,8 +46,8 @@ public class HomeFragment extends Fragment implements HomeContract.IHomeView {
         progressBar = new ProgressDialog(requireContext());
         progressBar.setCancelable(false);
         progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        int id =  binding.simpleSearchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
-        TextView textView = (TextView) binding.simpleSearchView.findViewById(id);
+        int id =  binding.locationSearchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
+        TextView textView = (TextView) binding.locationSearchView.findViewById(id);
         final Typeface typeface = ResourcesCompat.getFont(requireContext(), R.font.alike);
         textView.setTypeface(typeface);
 
@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment implements HomeContract.IHomeView {
         binding.recyclerViewPostOffice.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.recyclerViewPostOffice.setAdapter(weatherAdapter);
 
-        binding.simpleSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        binding.locationSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 homePresenter.fetchWeatherDetailByLocation(query);
@@ -71,7 +71,10 @@ public class HomeFragment extends Fragment implements HomeContract.IHomeView {
                 return false;
             }
         });
-        binding.simpleSearchView.onActionViewExpanded();
+        binding.searchImg.setOnClickListener(v -> {
+            homePresenter.fetchWeatherDetailByLocation(binding.locationSearchView.getQuery().toString());
+        });
+        binding.locationSearchView.onActionViewExpanded();
     }
 
     @Override

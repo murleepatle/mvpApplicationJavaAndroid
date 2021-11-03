@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
                 activityRegisterBinding.mobileNo.getText().toString(),
                 activityRegisterBinding.address.getText().toString()
         ));
-        activityRegisterBinding.imageView3.setOnClickListener(v -> {
+        activityRegisterBinding.imageViewBack.setOnClickListener(v -> {
             onBackPressed();
         });
         activityRegisterBinding.alreadyAcTv.setOnClickListener(v -> {
