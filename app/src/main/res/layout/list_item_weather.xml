@@ -1,37 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="5dp"
-    app:cardUseCompatPadding="true">
+    app:cardBackgroundColor="@android:color/holo_blue_dark">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg"
         android:padding="12dp">
 
         <TextView
             android:id="@+id/textViewLocation"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/alike"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
-            android:textColor="@color/white" />
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewSubLoc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alike"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLocation"
+             />
+
+        <ImageView
+            android:id="@+id/imageViewWeather"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSubLoc" />
 
         <TextView
             android:id="@+id/textViewTemp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:fontFamily="@font/alike"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-            android:textColor="@android:color/holo_orange_dark"
-            android:textSize="22sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/aladin"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+            android:textColor="@color/white"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewWeather"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewLocation" />
+            app:layout_constraintStart_toEndOf="@+id/imageViewWeather"
+            app:layout_constraintTop_toTopOf="@+id/imageViewWeather" />
 
 
         <TextView
@@ -41,7 +58,7 @@
             android:gravity="center"
             android:fontFamily="@font/alegreya_sc"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTemp" />
+            app:layout_constraintTop_toBottomOf="@+id/imageViewWeather" />
 
         <TextView
             android:id="@+id/textViewHumidity"
@@ -58,6 +75,7 @@
             android:layout_height="match_parent"
             android:gravity="end"
             android:textSize="12sp"
+            android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-thin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewHumidity" />
