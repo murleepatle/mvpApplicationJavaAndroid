@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,9 +43,9 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {  
         final WeatherDataResponse weatherDataResponse = weatherDataResponses.get(position);
         holder.textViewLocation.setText(weatherDataResponse.getLocation().getName());
-        holder.textViewSubLoc.setText(weatherDataResponse.getLocation().getRegion());
+        holder.textViewSubLoc.setText((weatherDataResponse.getLocation().getRegion()+", "+weatherDataResponse.getLocation().getRegion()));
         holder.textViewType.setText((weatherDataResponse.getCurrent().getCondition().getText()+" | Feel like "+weatherDataResponse.getCurrent().getFeelslikeC()));
-        holder.textViewTemp.setText((weatherDataResponse.getCurrent().getTempC()+" /°C"));
+        holder.textViewTemp.setText(Html.fromHtml((weatherDataResponse.getCurrent().getTempC()+holder.itemView.getContext().getString(R.string.celcius))));
         holder.textViewHumidity.setText((holder.itemView.getContext().getString(R.string.humidity) +(weatherDataResponse.getCurrent().getHumidity().toString())));
         holder.textViewLastUpdated.setText((holder.itemView.getContext().getString(R.string.last_update) + weatherDataResponse.getCurrent().getLastUpdated()));
 

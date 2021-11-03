@@ -66,5 +66,6 @@
     <string name="coming_soon">Coming Soon!</string>
     <string name="slide_image">Slide Image</string>
     <string name="weather">Weather</string>
+    <string name="celcius"><sup>°C</sup></string>
 
 </resources>
