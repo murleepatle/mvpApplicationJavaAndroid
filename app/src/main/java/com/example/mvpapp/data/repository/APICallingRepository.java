@@ -4,6 +4,7 @@ import android.content.res.Resources;
 
 import androidx.annotation.NonNull;
 
+import com.example.mvpapp.App;
 import com.example.mvpapp.R;
 import com.example.mvpapp.data.model.WeatherDataResponse;
 import com.example.mvpapp.data.network.Callback;
@@ -45,7 +46,7 @@ public class APICallingRepository {
                             if (weatherDataResponse != null) {
                                 callback.returnResult(weatherDataResponse);
                             } else {
-                                callback.returnError(Resources.getSystem().getString(R.string.error_something_wrong));
+                                callback.returnError(App.getContext().getString(R.string.error_something_wrong));
                             }
 
                     } else if (response.code() == 400){
@@ -53,11 +54,11 @@ public class APICallingRepository {
                         if (weatherDataResponse != null) {
                             callback.returnError(weatherDataResponse.getError().getMessage());
                         }else {
-                            callback.returnError(Resources.getSystem().getString(R.string.error_something_wrong));
+                            callback.returnError(App.getContext().getString(R.string.error_something_wrong));
                         }
 
                     }else {
-                        callback.returnError(Resources.getSystem().getString(R.string.error) + response.code());
+                        callback.returnError(App.getContext().getString(R.string.error) + response.code());
                     }
                 } else {
                     try {
@@ -66,7 +67,7 @@ public class APICallingRepository {
 
                             callback.returnError(weatherDataResponse.getError().getMessage());
                         } else {
-                            callback.returnError(Resources.getSystem().getString(R.string.error_something_wrong));
+                            callback.returnError(App.getContext().getString(R.string.error_something_wrong));
                         }
                     } catch (IOException e) {
                         e.printStackTrace();

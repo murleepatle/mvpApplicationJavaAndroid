@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         presenter = new MainActivityPresenter(this, SharedPreferencesManager.getInstance(this), UserDataSqliteRepository.getInstance(new UserDbHelper(this)));
         DrawerLayout drawer = binding.drawerLayout;
         navigationView = binding.navView;
-        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_timer, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);

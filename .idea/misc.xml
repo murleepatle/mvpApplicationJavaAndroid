@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.29739583333333336" />
+        <entry key="app/src/main/res/drawable/drawable_circle_dark_blue.xml" value="0.2984375" />
+        <entry key="app/src/main/res/drawable/drawable_circle_yellow.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/gradient_bg.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/ic_add_img.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/ic_avatar_male.xml" value="0.16510416666666666" />
@@ -19,6 +21,7 @@
         <entry key="app/src/main/res/drawable/ic_register_hero.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/ic_side_bg.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/ic_temp.xml" value="0.2984375" />
+        <entry key="app/src/main/res/drawable/ic_weather.xml" value="0.16510416666666666" />
         <entry key="app/src/main/res/drawable/ic_weather_empty_search.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/round_bg.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/round_bg_white.xml" value="0.2984375" />
@@ -37,6 +40,7 @@
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/fragment_timer.xml" value="0.18885869565217392" />
         <entry key="app/src/main/res/layout/list_item_post_office.xml" value="0.16" />
         <entry key="app/src/main/res/layout/list_item_weather.xml" value="0.33" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.25" />
