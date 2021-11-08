@@ -26,6 +26,7 @@ import com.example.mvpapp.databinding.FragmentHomeBinding;
 import com.example.mvpapp.interfaces.HomeContract;
 import com.example.mvpapp.presenter.HomePresenter;
 import com.example.mvpapp.ui.dashboard.WeatherAdapter;
+import com.example.mvpapp.utility.CommonMethod;
 import com.example.mvpapp.utility.InternetUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -78,12 +79,16 @@ public class HomeFragment extends Fragment implements HomeContract.IHomeView {
         });
         binding.locationSearchView.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                homePresenter.fetchWeatherDetailByLocation(binding.locationSearchView.getText().toString());
+                searchApiCall();
                 return true;
             }
             return false;
         });
-        binding.searchImg.setOnClickListener(v -> homePresenter.fetchWeatherDetailByLocation(binding.locationSearchView.getText().toString()));
+        binding.searchImg.setOnClickListener(v ->searchApiCall());
+    }
+    public void searchApiCall(){
+        CommonMethod.hideKeyboard(requireActivity());
+        homePresenter.fetchWeatherDetailByLocation(binding.locationSearchView.getText().toString());
     }
 
     @Override
