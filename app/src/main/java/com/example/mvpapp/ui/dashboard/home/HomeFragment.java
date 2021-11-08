@@ -3,9 +3,13 @@ package com.example.mvpapp.ui.dashboard.home;
 import android.app.ProgressDialog;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,10 +50,7 @@ public class HomeFragment extends Fragment implements HomeContract.IHomeView {
         progressBar = new ProgressDialog(requireContext());
         progressBar.setCancelable(false);
         progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        int id =  binding.locationSearchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
-        TextView textView = (TextView) binding.locationSearchView.findViewById(id);
-        final Typeface typeface = ResourcesCompat.getFont(requireContext(), R.font.alike);
-        textView.setTypeface(typeface);
+
 
         homePresenter =new HomePresenter(this, new InternetUtils(requireContext()));
         weatherAdapter = new WeatherAdapter(new ArrayList<>());
@@ -57,24 +58,32 @@ public class HomeFragment extends Fragment implements HomeContract.IHomeView {
         binding.recyclerViewPostOffice.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.recyclerViewPostOffice.setAdapter(weatherAdapter);
 
-        binding.locationSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        binding.locationSearchView.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                homePresenter.fetchWeatherDetailByLocation(query);
-                return false;
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
                 weatherAdapter.updateList(new ArrayList<>());
                 binding.emptyImg.setVisibility(View.VISIBLE);
-                return false;
+               // binding.locationSearchView.setError(null);
             }
         });
-        binding.searchImg.setOnClickListener(v -> {
-            homePresenter.fetchWeatherDetailByLocation(binding.locationSearchView.getQuery().toString());
+        binding.locationSearchView.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                homePresenter.fetchWeatherDetailByLocation(binding.locationSearchView.getText().toString());
+                return true;
+            }
+            return false;
         });
-        binding.locationSearchView.onActionViewExpanded();
+        binding.searchImg.setOnClickListener(v -> homePresenter.fetchWeatherDetailByLocation(binding.locationSearchView.getText().toString()));
     }
 
     @Override
@@ -100,7 +109,7 @@ public class HomeFragment extends Fragment implements HomeContract.IHomeView {
 
     @Override
     public void onErrorInputPin(int errorMsgResourceId) {
-        Toast.makeText(requireContext(), getString(errorMsgResourceId), Toast.LENGTH_SHORT).show();
+        binding.locationSearchView.setError(getString(errorMsgResourceId));
     }
 
     @Override

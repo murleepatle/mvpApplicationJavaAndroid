@@ -70,5 +70,8 @@
     <string name="fahrenheit"><sup> °F</sup></string>
     <string name="last_updated">Last Updated</string>
     <string name="feel_like">Feel Like</string>
+    <string name="temperature_in_fahrenheit">Temperature in Fahrenheit</string>
+    <string name="no_search_data">No Search Data</string>
+    <string name="type_location">Type Location</string>
 
 </resources>

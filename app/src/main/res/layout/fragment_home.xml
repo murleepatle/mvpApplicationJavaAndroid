@@ -12,6 +12,9 @@
         android:id="@+id/cardViewSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="4dp"
+        android:layout_margin="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,15 +23,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <SearchView
+            <EditText
                 android:id="@+id/locationSearchView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:layout_toStartOf="@+id/search_img"
-                android:goIcon="@android:drawable/ic_search_category_default"
-                android:iconifiedByDefault="false"
-                android:queryHint="@string/enter_location"
-                android:searchIcon="@drawable/ic_weather" />
+                android:autofillHints="name"
+                android:background="@null"
+                android:fontFamily="@font/alike"
+                android:hint="@string/type_location"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:padding="8dp" />
 
             <ImageView
                 android:id="@+id/search_img"
@@ -36,6 +43,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerInParent="true"
+                android:padding="12dp"
+                android:background="@color/colorAccent"
                 android:src="@drawable/ic_baseline_search_24" />
         </RelativeLayout>
 
@@ -61,19 +70,15 @@
             android:elevation="5dp"
             android:fontFamily="@font/alegreya_sc"
             android:padding="16dp"
-            android:text="@string/search_weather_according_to_city"
-            android:textColor="@color/black"
-            app:drawableTopCompat="@drawable/ic_empty_img" />
+            android:text="@string/no_search_data"
+            android:textColor="@color/black"/>
     </com.google.android.material.card.MaterialCardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_post_office"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

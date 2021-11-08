@@ -11,8 +11,8 @@
 
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#000</color>
-    <color name="colorAccent">#11CFC5</color>
-    <color name="themeColor">#11CFC5</color>
+    <color name="colorAccent">#5F6DF2</color>
+    <color name="themeColor">#95BEF4</color>
 
     <!--normal colors-->
     <color name="darkTextColor">#020000</color>
