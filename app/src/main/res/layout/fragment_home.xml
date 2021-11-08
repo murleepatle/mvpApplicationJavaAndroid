@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerInParent="true"
-                android:src="@android:drawable/ic_menu_search" />
+                android:src="@drawable/ic_baseline_search_24" />
         </RelativeLayout>
 
 
@@ -62,7 +62,7 @@
             android:fontFamily="@font/alegreya_sc"
             android:padding="16dp"
             android:text="@string/search_weather_according_to_city"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/black"
             app:drawableTopCompat="@drawable/ic_empty_img" />
     </com.google.android.material.card.MaterialCardView>
 

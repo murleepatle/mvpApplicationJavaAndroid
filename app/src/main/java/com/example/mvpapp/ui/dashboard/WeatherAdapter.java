@@ -43,11 +43,13 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {  
         final WeatherDataResponse weatherDataResponse = weatherDataResponses.get(position);
         holder.textViewLocation.setText(weatherDataResponse.getLocation().getName());
-        holder.textViewSubLoc.setText((weatherDataResponse.getLocation().getRegion()+", "+weatherDataResponse.getLocation().getRegion()));
-        holder.textViewType.setText((weatherDataResponse.getCurrent().getCondition().getText()+" | Feel like "+weatherDataResponse.getCurrent().getFeelslikeC()));
-        holder.textViewTemp.setText(Html.fromHtml((weatherDataResponse.getCurrent().getTempC()+holder.itemView.getContext().getString(R.string.celcius))));
-        holder.textViewHumidity.setText((holder.itemView.getContext().getString(R.string.humidity) +(weatherDataResponse.getCurrent().getHumidity().toString())));
-        holder.textViewLastUpdated.setText((holder.itemView.getContext().getString(R.string.last_update) + weatherDataResponse.getCurrent().getLastUpdated()));
+        holder.textViewSubLoc.setText(weatherDataResponse.getLocation().getRegion());
+        holder.textViewType.setText(weatherDataResponse.getCurrent().getCondition().getText());
+        holder.textViewTemp.setText(Html.fromHtml((weatherDataResponse.getCurrent().getTempC()+holder.itemView.getContext().getString(R.string.celsius))));
+        holder.textViewTempF.setText(Html.fromHtml((weatherDataResponse.getCurrent().getTempF()+holder.itemView.getContext().getString(R.string.fahrenheit))));
+        holder.textViewHumidity.setText((weatherDataResponse.getCurrent().getHumidity().toString()));
+        holder.textViewLastUpdated.setText( weatherDataResponse.getCurrent().getLastUpdated());
+        holder.textViewFeel.setText((weatherDataResponse.getCurrent().getFeelslikeC()+holder.itemView.getContext().getString(R.string.celsius)));
 
         executor.execute(() -> {
             try {
@@ -76,7 +78,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {  
-        public TextView textViewLocation,textViewType,textViewTemp,textViewSubLoc,textViewHumidity,textViewLastUpdated;
+        public TextView textViewLocation,textViewType,textViewTemp,textViewSubLoc,textViewHumidity,textViewLastUpdated,textViewFeel,textViewTempF;
         public ImageView imageViewWeather;
         public ViewHolder(View itemView) {
             super(itemView);  
@@ -86,6 +88,8 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
             this.textViewTemp = (TextView) itemView.findViewById(R.id.textViewTemp);
             this.textViewHumidity = (TextView) itemView.findViewById(R.id.textViewHumidity);
             this.textViewLastUpdated = (TextView) itemView.findViewById(R.id.textViewLastUpdated);
+            this.textViewFeel = (TextView) itemView.findViewById(R.id.textViewFeel);
+            this.textViewTempF = (TextView) itemView.findViewById(R.id.textViewTempF);
             this.imageViewWeather =  itemView.findViewById(R.id.imageViewWeather);
         }
     }  

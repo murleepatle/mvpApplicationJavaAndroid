@@ -18,7 +18,6 @@
             android:background="?attr/colorPrimary"
             app:titleCentered="true"
             app:title="@string/weather"
-            app:titleTextAppearance="@style/TextAppearance.AppCompat.Small"
             app:popupTheme="@style/Theme.MVPApplicationJava.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>

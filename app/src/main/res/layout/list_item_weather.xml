@@ -2,12 +2,12 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardBackgroundColor="@android:color/holo_blue_dark">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_bg"
         android:padding="12dp">
 
         <TextView
@@ -15,70 +15,222 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alike"
+            android:gravity="center"
+            android:text="@string/weather"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textColor="@color/whiteTextColor"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewSubLoc"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/round_bg_white"
             android:fontFamily="@font/alike"
-            app:layout_constraintTop_toBottomOf="@+id/textViewLocation"
-             />
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="4dp"
+            android:layout_marginTop="5dp"
+            android:textAllCaps="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLocation" />
 
         <ImageView
             android:id="@+id/imageViewWeather"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_margin="8dp"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_weather"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewSubLoc" />
 
         <TextView
             android:id="@+id/textViewTemp"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/round_bg"
             android:fontFamily="@font/aladin"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="4dp"
+            android:text="22 C"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-            android:textColor="@color/white"
+            android:textColor="@color/whiteTextColor"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewWeather"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageViewWeather"
-            app:layout_constraintTop_toTopOf="@+id/imageViewWeather" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewType" />
 
 
         <TextView
             android:id="@+id/textViewType"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_sc"
+            android:gravity="center"
+            android:text="Rain"
+            android:textColor="@color/whiteTextColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageViewWeather" />
 
-        <TextView
-            android:id="@+id/textViewHumidity"
+        <LinearLayout
+            android:id="@+id/last_update_lay"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:fontFamily="@font/alegreya_sc"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewType" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTemp">
 
-        <TextView
-            android:id="@+id/textViewLastUpdated"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewLastUpdated"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alike"
+                    android:text="2021-11-08 10:15"
+                    android:textColor="@color/whiteTextColor" />
+
+                <TextView
+                    android:id="@+id/tvLastUpdatedLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-thin"
+                    android:text="@string/last_updated"
+                    android:textColor="@color/whiteTextColor"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewTempF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alike"
+                    android:gravity="end"
+                    android:text="75 f"
+                    android:textColor="@color/whiteTextColor" />
+
+                <TextView
+                    android:id="@+id/tvTempLabelF"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="end"
+                    android:text="Temperature in Fahrenheit"
+                    android:textColor="@color/whiteTextColor"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="end"
-            android:textSize="12sp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="sans-serif-thin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewHumidity" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/last_update_lay">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvHumidityLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:text="@string/humidity"
+                        android:textSize="12sp"
+                        app:drawableStartCompat="@drawable/ic_feel_like" />
+
+                    <TextView
+                        android:id="@+id/textViewHumidity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/alegreya_sc"
+                        android:gravity="center"
+                        android:text="75 f"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
 
 
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvFeelLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:text="@string/feel_like"
+                        android:textSize="12sp"
+                        android:drawablePadding="8dp"
+                        app:drawableStartCompat="@drawable/ic_temp" />
+
+                    <TextView
+                        android:id="@+id/textViewFeel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/alegreya_sc"
+                        android:gravity="center"
+                        android:text="75 f"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
